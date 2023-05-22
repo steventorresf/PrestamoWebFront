@@ -1,0 +1,18 @@
+<div>
+    <h1>Clientes</h1>
+</div>
+<div class="mt-5">
+    <mat-form-field class="filter" appearance="outline">
+        <mat-label>Filtro por nombre</mat-label>
+        <input matInput autocomplete="off" (keyup)="changeFilter($event)">
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="ml-5" (click)="openEditor(undefined)">Agregar</button>
+</div>
+<div class="mt-5">
+    <app-table-client
+        [textFilter]="textFilter"
+        [iCallTable]="iCallTable"
+        (editCliente)="editCliente($event)"
+        (managePrestamos)="managePrestamos($event)">
+    </app-table-client>
+</div>

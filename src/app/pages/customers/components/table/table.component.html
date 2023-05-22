@@ -1,0 +1,56 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+        <ng-container matColumnDef="opciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Opciones</th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-icon-button color="primary" (click)="seeCliente(row)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" (click)="seePrestamos(row)">
+                    <mat-icon>home</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="identificacion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Identificación</th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.tipoIdentificacion }} - {{ row.identificacion }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="nombreCompleto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre completo</th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.nombreCompleto }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="genero">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Género</th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.genero }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="telefono">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Teléfono</th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.telCel }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="direccion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Dirección</th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.direccion }}
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell text-center" colspan="8">No hay registros</td>
+        </tr>
+    </table>
+
+    <mat-paginator #paginator showFirstLastButtons [length]="opPag.length" [pageIndex]="opPag.pageIndex"
+        [pageSize]="opPag.pageSize" [pageSizeOptions]="opPag.pageSizeOptions" (page)="pageChanged($event)">
+    </mat-paginator>
+</div>
