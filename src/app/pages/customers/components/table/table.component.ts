@@ -30,7 +30,6 @@ export class TableClientComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-    this.getDataSource(this.opPag.pageIndex, this.opPag.pageSize);
   }
 
   ngOnChanges(changes: any): void {

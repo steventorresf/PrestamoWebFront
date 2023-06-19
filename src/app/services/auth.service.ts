@@ -36,6 +36,7 @@ export class AuthApiService {
               fechaExpiracion: res.data.fechaExpiracion
             }));
             sessionStorage.setItem('token', res.data.token);
+            sessionStorage.setItem('uid', res.data.usuarioId);
     
             this._router.navigateByUrl('')
               .then(() => {
