@@ -1,9 +1,25 @@
 .text-center {
     text-align: center;
 }
+
 .text-right {
     text-align: right;
 }
+
 .text-left {
     text-align: left;
+}
+
+.input-button {
+    position: relative;
+
+    mat-form-field{
+        width: 50%;
+    }
+
+    button {
+        position: absolute;
+        right: 0;
+        top: 20%;
+    }
 }

@@ -1,0 +1,57 @@
+<div class="header-modal">
+    <h4>{{ Id === 0 ? 'Agregar' : 'Editar' }} cliente</h4>
+    <mat-icon class="close" (click)="close()">close</mat-icon>
+</div>
+<div class="body-modal">
+    <form [formGroup]="myForm">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo identificación</mat-label>
+                <mat-select formControlName="tipoId">
+                    <mat-option *ngFor="let item of listTiposId" [value]="item.tablaDetalleId">
+                        {{item.descripcion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Número de identificación</mat-label>
+                <input matInput formControlName="identificacion">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre completo</mat-label>
+                <input matInput formControlName="nombreCompleto">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Género</mat-label>
+                <mat-select formControlName="generoId">
+                    <mat-option *ngFor="let item of listGenero" [value]="item.tablaDetalleId">
+                        {{item.descripcion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Teléfono</mat-label>
+                <input matInput formControlName="telCel">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Dirección</mat-label>
+                <input matInput formControlName="direccion">
+            </mat-form-field>
+        </div>
+
+        <div class="text-center">
+            <button type="button" mat-flat-button color="primary" (click)="guardar()">Guardar</button>
+            <button type="button" class="ml-2" mat-flat-button (click)="close()">Cancelar</button>
+        </div>
+    </form>
+</div>

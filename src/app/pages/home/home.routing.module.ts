@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { CustomerComponent } from '../customers/customer.component';
 import { HomeChildGuard } from 'src/app/guards/home-child-guard';
+import { GestionComponent } from '../gestion/gestion.component';
 
 const routes: Routes = [
 	{
@@ -11,9 +11,9 @@ const routes: Routes = [
 		canActivateChild: [HomeChildGuard],
 		children: [
 			{
-				path: 'customers',
-				component: CustomerComponent,
-				loadChildren: () => import('../customers/customer.module').then((m) => m.CustomerModule)
+				path: 'gestion',
+				component: GestionComponent,
+				loadChildren: () => import('../gestion/gestion.module').then((m) => m.GestionModule)
 			},
 		]
 	}

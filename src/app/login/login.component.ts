@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.myForm.valid) {
       const payload = {
-        userName: this.myForm.get('userName')?.value,
-        password: this.myForm.get('password')?.value,
+        nombreUsuario: this.myForm.get('userName')?.value,
+        contrasena: this.myForm.get('password')?.value,
       }
 
       this._authService.login(payload);

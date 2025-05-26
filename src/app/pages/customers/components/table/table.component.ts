@@ -39,14 +39,15 @@ export class TableClientComponent implements OnInit, OnChanges {
   }
 
   getDataSource(pageNumber: number, pageSize: number) {
-    this._clienteApiService.getClientes(this.textFilter, pageNumber + 1, pageSize).subscribe(resp => {
-      this.opPag.totalItems = resp.data.countItems;
-      this.paginator.length = resp.data.countItems;
+    this._clienteApiService.obtenerClientesActivosporUsuario().subscribe(resp => {
+      // this.opPag.totalItems = resp.data.countItems;
+      // this.paginator.length = resp.data.countItems;
 
-      this.dataSource = new MatTableDataSource(resp.data.listItems);
-      if (pageNumber == 0) {
-        this.paginator.firstPage();
-      }
+      // this.dataSource = new MatTableDataSource(resp.data.listItems);
+      // if (pageNumber == 0) {
+      //   this.paginator.firstPage();
+      // }
+      this.dataSource = new MatTableDataSource(resp.data);
     })
   }
 

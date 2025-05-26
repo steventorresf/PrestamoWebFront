@@ -1,0 +1,33 @@
+<div [formGroup]="formBusqueda" class="mt-5 input-button">
+    <mat-form-field class="filter" appearance="outline">
+        <mat-label>Filtro por nombre</mat-label>
+        <input matInput formControlName="textoFiltro" autocomplete="off" (keyup)="filtrarListado()">
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="ml-5" (click)="abrirFormulario(undefined)">Nuevo</button>
+</div>
+<div>
+    <table class="table-normal">
+        <caption>Clientes Activos</caption>
+        <thead>
+            <tr>
+                <th>Opciones</th>
+                <th>Identificación</th>
+                <th>Nombre Cliente</th>
+                <th>Género</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let element of FiltradoDeClientes">
+                <td class="text-center">
+                    <mat-icon (click)="abrirFormulario(element)">edit</mat-icon>
+                    <mat-icon (click)="verPrestamos(element)">home</mat-icon>
+                </td>
+                <td>{{ element.tipoIdentificacion + ' ' + element.identificacion }}</td>
+                <td>{{ element.nombreCompleto }}</td>
+                <td>{{ element.genero }}</td>
+                <td>{{ element.telCel }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

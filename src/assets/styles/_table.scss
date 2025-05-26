@@ -1,3 +1,46 @@
 table.mat-table {
     width: 100%;
 }
+
+
+table.table-normal {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid lightgrey;
+    font-size: 0.85rem;
+
+    th {
+        background-color: aliceblue;
+        color: #000000;
+        font-weight: bold;
+    }
+
+    caption,
+    th,
+    td {
+        border: 1px solid lightgrey;
+        padding: 5px;
+    }
+
+    caption {
+        background-color: #1976d2;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 7px;
+    }
+
+    tbody {
+        tr:hover {
+            td {
+                background-color: whitesmoke;
+                font-weight: 500;
+            }
+        }
+    }
+
+    mat-icon {
+        width: 15px;
+        height: 15px;
+        font-size: 1rem;
+    }
+}

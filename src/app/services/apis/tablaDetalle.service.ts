@@ -4,17 +4,18 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
+const URL = `${environment.ApiUrl}tabla-detalle/`;
+
 @Injectable({
     providedIn: 'root'
 })
-
 export class TablaDetalleApiService {
 
     constructor(private http: HttpClient) { }
 
     // List
     public getTablasDetallePorCodigos(codigos: string): Observable<any> {
-        return this.http.get<any>(`${environment.ApiUrl}TablaDetalle/by-codigos?codigos=${codigos}`)
+        return this.http.get<any>(`${URL}obtener-tablas-detalles-por-codigos?codigos=${codigos}`)
             .pipe(
                 retry(2), // retry a failed request up to 3 times
                 catchError(this.handleError) // then handle the error

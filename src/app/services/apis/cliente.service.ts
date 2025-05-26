@@ -4,17 +4,18 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
+const URL = `${environment.ApiUrl}clientes/`;
+
 @Injectable({
     providedIn: 'root'
 })
-
 export class ClienteApiService {
 
     constructor(private http: HttpClient) { }
 
     // List
-    public getClientes(textFilter: string, pageNumber: number, pageSize: number): Observable<any> {
-        return this.http.get<any>(`${environment.ApiUrl}Cliente?pageNumber=${pageNumber}&pageSize=${pageSize}` + (textFilter ? `&textFilter=${textFilter}` : ''))
+    public obtenerClientesActivosporUsuario(): Observable<any> {
+        return this.http.get<any>(`${URL}obtener-clientes-por-usuario?estado=AC`)
             .pipe(
                 retry(2), // retry a failed request up to 3 times
                 catchError(this.handleError) // then handle the error
@@ -22,7 +23,7 @@ export class ClienteApiService {
     }
 
     public postCliente(payload: any): Observable<any> {
-        return this.http.post<any>(`${environment.ApiUrl}Cliente`, payload)
+        return this.http.post<any>(`${URL}guardar-cliente`, payload)
             .pipe(
                 retry(2), // retry a failed request up to 3 times
                 catchError(this.handleError) // then handle the error

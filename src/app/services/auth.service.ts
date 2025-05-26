@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { SwalService } from "./swal.service";
 
-const URL_LOGIN = `${environment.ApiUrl}Usuario/login`;
+const URL_LOGIN = `${environment.ApiUrl}usuarios/login`;
 
 @Injectable({
     providedIn: 'root'

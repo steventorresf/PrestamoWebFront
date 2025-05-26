@@ -5,11 +5,11 @@ import { ClienteApiService } from 'src/app/services/apis/cliente.service';
 import { TablaDetalleApiService } from 'src/app/services/apis/tablaDetalle.service';
 
 @Component({
-  selector: 'app-editor-client',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  selector: 'app-formulario-clientes',
+  templateUrl: './formulario-clientes.component.html',
+  styleUrls: ['./formulario-clientes.component.scss']
 })
-export class EditorClientComponent implements OnInit {
+export class FormularioClientesComponent implements OnInit {
 
   Id = 0;
   codigosTablas: string = '5,1,6';
@@ -28,7 +28,7 @@ export class EditorClientComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _dialogRef: MatDialogRef<EditorClientComponent>,
+    private _dialogRef: MatDialogRef<FormularioClientesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _clienteApiService: ClienteApiService,
     private _tabñaDetalleApiService: TablaDetalleApiService,

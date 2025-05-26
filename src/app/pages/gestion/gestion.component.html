@@ -1,0 +1,14 @@
+<div [hidden]="ocultar.listadoClientes">
+    <app-listado-clientes (eventVerPrestamos)="eventVerPrestamos($event)"></app-listado-clientes>
+</div>
+<div class="mt-5" [hidden]="ocultar.datosCliente">
+    <div>
+        <button mat-flat-button (click)="regresarAListadoClientes()">Regresar</button>
+    </div>
+    <div class="mt-3">
+        <app-datos-cliente [datosCliente]="datosCliente"></app-datos-cliente>
+    </div>
+</div>
+<div class="mt-3" [hidden]="ocultar.listadoPrestamos">
+
+</div>

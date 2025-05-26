@@ -16,7 +16,7 @@ export class HomeComponent {
 
   arrayMenu = [
     { name: 'Inicio', icon: 'home', url: '/' },
-    { name: 'Clientes', icon: 'person', url: '/customers' },
+    { name: 'Gestion', icon: 'person', url: '/gestion' },
     { name: 'productos', icon: 'free_breakfast', url: '' },
     { name: 'Ventas', icon: 'collections_bookmark', url: '' },
   ]
