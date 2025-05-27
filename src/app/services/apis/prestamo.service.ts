@@ -4,25 +4,34 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
+const URL = `${environment.ApiUrl}prestamos/`;
 @Injectable({
     providedIn: 'root'
 })
-
-export class LoanApiService {
+export class PrestamoApiService {
 
     constructor(private http: HttpClient) { }
 
     // List
-    public getPrestamosByClienteId(clienteId: number, pageNumber: number, pageSize: number): Observable<any> {
-        return this.http.get<any>(`${environment.ApiUrl}Prestamo/${clienteId}?pageNumber=${pageNumber}&pageSize=${pageSize}`)
+    public ObtenerPrestamosPorClienteId(clienteId: number): Observable<any> {
+        return this.http.get<any>(`${URL}obtener-prestamos-por-cliente-id/${clienteId}`)
             .pipe(
                 retry(2), // retry a failed request up to 3 times
                 catchError(this.handleError) // then handle the error
             );
     }
 
-    public postCliente(payload: any): Observable<any> {
-        return this.http.post<any>(`${environment.ApiUrl}Cliente`, payload)
+    public CalcularCuotasPrestamo(payload: any): Observable<any> {
+        return this.http.post<any>(`${URL}calcular-cuotas-prestamo`, payload)
+            .pipe(
+                retry(2), // retry a failed request up to 3 times
+                catchError(this.handleError) // then handle the error
+            );
+
+    }
+
+    public CrearPrestamo(payload: any): Observable<any> {
+        return this.http.post<any>(`${URL}crear-prestamo`, payload)
             .pipe(
                 retry(2), // retry a failed request up to 3 times
                 catchError(this.handleError) // then handle the error

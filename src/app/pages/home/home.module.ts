@@ -4,7 +4,6 @@ import { CustomerModule } from '../customers/customer.module';
 import { MaterialModule } from 'src/app/material.module';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing.module';
-import { LoanModule } from '../loans/loan.module';
 
 @NgModule({
 	declarations: [HomeComponent],
@@ -12,8 +11,7 @@ import { LoanModule } from '../loans/loan.module';
 		CommonModule,
 		MaterialModule,
 		HomeRoutingModule,
-		CustomerModule,
-		LoanModule
+		CustomerModule
 	]
 })
 export class HomeModule {}

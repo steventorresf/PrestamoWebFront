@@ -1,0 +1,44 @@
+<div class="text-right">
+    <button mat-flat-button color="primary" (click)="abrirFormulario(undefined)">Nuevo</button>
+</div>
+<div class="mt-3">
+    <table class="table-normal">
+        <caption>Prestamos</caption>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Opciones</th>
+                <th>Fecha Prest</th>
+                <th>V. Prest</th>
+                <th>%</th>
+                <th>Días</th>
+                <th>Cuotas</th>
+                <th>V. Total</th>
+                <th>Forma Pago</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let element of ListadoDePrestamos; let i = index">
+                <td class="text-center">{{ i + 1 }}</td>
+                <td class="text-center">
+                    <ng-container *ngIf="element.codigoEstado === CODIGO_ESTADO_PENDIENTE">
+                        <mat-icon (click)="abrirFormulario(element)">edit</mat-icon>
+                        <mat-icon (click)="anularPrestamo(element)">home</mat-icon>
+                    </ng-container>
+                </td>
+                <td class="text-center">{{ element.fechaPrestamo.toString().substring(0, 10) }}</td>
+                <td class="text-right">{{ '$' + PonerPuntos(element.valorPrestamo) }}</td>
+                <td class="text-center">{{ element.porcentaje }}</td>
+                <td class="text-center">{{ element.dias }}</td>
+                <td class="text-center">{{ element.noCuotas }}</td>
+                <td class="text-right">{{ '$' + PonerPuntos(element.valorTotal) }}</td>
+                <td class="text-center">{{ element.periodo }}</td>
+                <td class="text-center">{{ element.estado }}</td>
+            </tr>
+            <tr *ngIf="ListadoDePrestamos.length === 0">
+                <td class="text-center" colspan="20">No hay registros disponibles</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

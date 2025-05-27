@@ -6,13 +6,17 @@ import { GestionComponent } from './gestion.component';
 import { ListadoClientesComponent } from './components/listado-clientes/listado-clientes.component';
 import { FormularioClientesComponent } from './components/formulario-clientes/formulario-clientes.component';
 import { DatosClienteComponent } from './components/datos-cliente/datos-cliente.component';
+import { ListadoPrestamosComponent } from './components/listado-prestamos/listado-prestamos.component';
+import { FormularioPrestamosComponent } from './components/formulario-prestamos/formulario-prestamos.component';
 
 @NgModule({
 	declarations: [
 		GestionComponent,
 		ListadoClientesComponent,
 		FormularioClientesComponent,
-		DatosClienteComponent
+		DatosClienteComponent,
+		ListadoPrestamosComponent,
+		FormularioPrestamosComponent
 	],
 	imports: [
 		CommonModule,

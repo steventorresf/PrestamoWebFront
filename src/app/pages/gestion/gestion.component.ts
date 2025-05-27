@@ -27,6 +27,7 @@ export class GestionComponent implements OnInit {
     this.ocultar.listadoPrestamos = true;
     this.ocultar.datosCliente = true;
     this.ocultar.listadoClientes = false;
+    this.datosCliente = {};
   }
 
   eventVerPrestamos(element: any) {

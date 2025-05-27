@@ -9,6 +9,6 @@
         <app-datos-cliente [datosCliente]="datosCliente"></app-datos-cliente>
     </div>
 </div>
-<div class="mt-3" [hidden]="ocultar.listadoPrestamos">
-
+<div class="mt-10" [hidden]="ocultar.listadoPrestamos">
+    <app-listado-prestamos [clienteId]="datosCliente.clienteId"></app-listado-prestamos>
 </div>

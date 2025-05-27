@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { LoanComponent } from '../loans/loan.component';
 import { EditorClientComponent } from './components/editor/editor.component';
 
 @Component({
@@ -43,17 +42,17 @@ export class CustomerComponent implements OnInit {
   }
 
   managePrestamos(element: any){
-    this._matDialog.open(LoanComponent, {
-      disableClose: true,
-      width: '95%',
-      minWidth: '95%',
-      maxHeight: '98%',
-      data: { clienteId: element ? element.clienteId : 0, element }
-    }).afterClosed().subscribe(data => {
-      if (data?.refresh) {
-        this.iCallTable++;
-      }
-    });
+    // this._matDialog.open(LoanComponent, {
+    //   disableClose: true,
+    //   width: '95%',
+    //   minWidth: '95%',
+    //   maxHeight: '98%',
+    //   data: { clienteId: element ? element.clienteId : 0, element }
+    // }).afterClosed().subscribe(data => {
+    //   if (data?.refresh) {
+    //     this.iCallTable++;
+    //   }
+    // });
   }
 
 }
